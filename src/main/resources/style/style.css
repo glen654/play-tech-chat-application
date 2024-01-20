@@ -1,0 +1,45 @@
+.background-color{
+    -fx-background-color: linear-gradient(to bottom,#051937,#19359B);
+
+}
+
+.border-radius{
+    -fx-border-radius: 50px;
+}
+
+.coolBeans {
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-color: transparent;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-family: "Ubuntu";
+    -fx-font-size: 24px;
+    -fx-font-weight: 100;
+    -fx-padding: 10 20;
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+
+    -fx-effect: dropshadow(gaussian, white, 0, 0, 0, 0);
+    -fx-translate-x: 0;
+    -fx-translate-y: 0;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+
+    -fx-transition: -fx-border-color 0.2s, -fx-text-fill 0.2s, -fx-translate-x 0.2s, -fx-translate-y 0.2s, -fx-scale-x 0.2s, -fx-scale-y 0.2s;
+    -fx-z-index: 0;
+}
+
+.coolBeans:hover {
+    -fx-border-color: transparent;
+    -fx-text-fill: lightblue;
+    -fx-translate-x: 0;
+    -fx-translate-y: 0;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+
+
+
