@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.LoginBo;
 import lk.ijse.dto.UserDto;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -25,6 +27,7 @@ public class LoginFormController {
 
     @FXML
     private TextField txtPassword;
+
 
     LoginBo loginBo = (LoginBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.LOGIN);
 
@@ -44,17 +47,37 @@ public class LoginFormController {
         String displayName = txtName.getText();
         String password = txtPassword.getText();
 
-        try {
-            UserDto userDto = loginBo.searchUser(displayName,password);
+       try {
 
-            if(userDto != null){
-                clearFields();
-                new Alert(Alert.AlertType.CONFIRMATION,"You are successfully logged in").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,"Login Unsuccessfull").show();
-        }
+                UserDto userDto = loginBo.searchUser(displayName, password);
+
+                if (userDto != null) {
+                    clearFields();
+                    openMainChatScreen();
+                }
+            } catch(SQLException e){
+                new Alert(Alert.AlertType.ERROR, "Login Unsuccessfull").show();
+            } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+
     }
+
+
+
+    private void openMainChatScreen() throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/user_interface.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+        stage.setTitle("Chatterbox");
+
+        stage.setScene(scene);
+        stage.show();
+        new Alert(Alert.AlertType.CONFIRMATION, "You are successfully logged in").show();
+    }
+
 
     private void clearFields() {
         txtName.setText("");

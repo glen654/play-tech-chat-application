@@ -11,7 +11,7 @@ public class AppInitializer extends Application {
     public void start(Stage stage) throws Exception {
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/load_form.fxml"))));
         stage.centerOnScreen();
-        stage.setTitle("Human Resource Management");
+        stage.setTitle("Chatterbox");
 
         stage.show();
     }
