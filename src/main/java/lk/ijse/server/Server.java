@@ -10,8 +10,8 @@ public class Server {
     private static ArrayList<ClientHandler> clients = new ArrayList<>();
 
     public static void main(String[] args) {
-        try {
-                ServerSocket serverSocket = new ServerSocket(3000);
+            try {
+                ServerSocket serverSocket = new ServerSocket(3001);
                 System.out.println("Server started");
                 while(true) {
                     Socket socket = serverSocket.accept();
@@ -25,4 +25,5 @@ public class Server {
                 throw new RuntimeException(e);
             }
         }
-    }
+
+}

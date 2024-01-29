@@ -32,18 +32,24 @@ public class ClientHandler extends Thread{
     @Override
     public void run() {
         try {
+            System.out.println("Server thread waiting for messages");
             String message;
             while ((message = reader.readLine()) != null){
+                System.out.println("Receieved on server: " + message);
                 for (ClientHandler client : clients){
                         client.writer.println(message);
-
                 }
             }
-            writer.close();
-            reader.close();
-            socket.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                writer.close();
+                reader.close();
+                socket.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -38,34 +38,26 @@ public class UserController {
 
 
     public void initialize(){
-        try {
-                socket = new Socket("localhost",3000);
-                dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                dataInputStream = new DataInputStream(socket.getInputStream());
-
-                Thread recieveThread = new Thread(this::receiveMessages);
-                recieveThread.setDaemon(true);
-                recieveThread.start();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-       /* new Thread(() -> {
+        new Thread(() -> {
+            System.out.println("User controller initialized");
             try {
-                socket = new Socket("localhost",3000);
+                socket = new Socket("localhost",3001);
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 dataInputStream = new DataInputStream(socket.getInputStream());
+                System.out.println("Socket and streams initialized");
                 receiveMessages();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }).start();*/
-
+        }).start();
     }
 
     private void receiveMessages() {
         try {
             while(true) {
+                System.out.println("Waiting for messages");
                 String message = dataInputStream.readUTF();
+                System.out.println("Received messages: " + message);
                 Platform.runLater(() -> {
                     txtArea.appendText(message + "\n");
                     txtArea.setScrollTop(Double.MAX_VALUE);
@@ -96,10 +88,10 @@ public class UserController {
     }
 
     private void sendMessage(){
-        String message = txtMsgField.getText().trim();
+        String message = txtMsgField.getText();
         if (!message.isEmpty()) {
             try {
-                dataOutputStream.writeUTF(message);
+                dataOutputStream.writeUTF(message + "\n");
                 dataOutputStream.flush();
 
                 txtMsgField.clear();
