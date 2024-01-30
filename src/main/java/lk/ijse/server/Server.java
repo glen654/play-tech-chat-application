@@ -1,6 +1,8 @@
 package lk.ijse.server;
 
 
+import java.io.DataInput;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

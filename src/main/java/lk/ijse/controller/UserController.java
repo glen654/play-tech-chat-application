@@ -7,20 +7,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.dto.UserDto;
 
 import java.io.*;
 import java.net.Socket;
-
+import java.nio.file.Files;
 
 
 public class UserController {
@@ -69,7 +68,6 @@ public class UserController {
         } catch (IOException e) {
                 throw new RuntimeException(e);
         }
-
     }
 
     private boolean isSenderMessage(String message) {
@@ -81,22 +79,55 @@ public class UserController {
 
         if (isSenderMessage) {
             messageLabel.getStyleClass().add("sender-message");
-            messageLabel.setText("Me: " + message);
+            messageLabel.setText(message);
         } else {
             messageLabel.getStyleClass().add("other-message");
+        }
+        if (message.startsWith("Me: ")){
+            messageLabel.setText(message.substring(4));
+        }else {
             messageLabel.setText(txtDisplayName.getText() + ": " + message);
         }
         messageContainer.getChildren().add(messageLabel);
     }
 
+
     @FXML
     void btnImageOnAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Image File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.bmp"));
 
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            try {
+                byte[] imageBytes = Files.readAllBytes(selectedFile.toPath());
+
+                sendImageToServer(imageBytes);
+
+                System.out.println("Selected Image File: " + selectedFile.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void sendImageToServer(byte[] imageBytes) {
+        try {
+            dataOutputStream.writeUTF("IMAGE_MARKER");
+            dataOutputStream.flush();
+
+            dataOutputStream.writeInt(imageBytes.length);
+            dataOutputStream.write(imageBytes);
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void btnEmojiOnAction(ActionEvent event) {
-
     }
 
     @FXML

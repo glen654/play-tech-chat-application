@@ -56,4 +56,13 @@
     -fx-alignment: center-left;
 }
 
+.sender-label {
+    -fx-font-weight: bold; /* Make sender's name bold */
+    -fx-padding: 0 5 0 0; /* Add some right padding to separate sender's name from the message */
+}
+
+.message-label {
+    /* Add any additional styling for the message content */
+}
+
 
