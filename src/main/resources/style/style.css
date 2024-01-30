@@ -40,6 +40,20 @@
     -fx-scale-y: 1.05;
 }
 
+.sender-message {
+    -fx-background-color: lightblue;
+    -fx-padding: 12px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 12px;
+    -fx-alignment: center-right;
+}
 
+.other-message {
+    -fx-background-color: lightgreen;
+    -fx-padding: 12px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 12px;
+    -fx-alignment: center-left;
+}
 
 

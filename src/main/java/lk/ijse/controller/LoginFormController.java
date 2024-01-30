@@ -48,12 +48,10 @@ public class LoginFormController {
         String password = txtPassword.getText();
 
        try {
-
-                UserDto userDto = loginBo.searchUser(displayName, password);
-
-                if (userDto != null) {
+           UserDto userDto = loginBo.searchUser(displayName, password);
+           if (userDto != null) {
                     clearFields();
-                    openMainChatScreen();
+                    openMainChatScreen(userDto);
                 }
             } catch(SQLException e){
                 new Alert(Alert.AlertType.ERROR, "Login Unsuccessfull").show();
@@ -65,16 +63,20 @@ public class LoginFormController {
 
 
 
-    private void openMainChatScreen() throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/user_interface.fxml"));
+    private void openMainChatScreen(UserDto userDto) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user_interface.fxml"));
+        Parent rootNode = loader.load();
+
+        UserController userController = loader.getController();
+        userController.initUser(userDto);
 
         Scene scene = new Scene(rootNode);
 
         Stage stage = new Stage();
         stage.setTitle("Chatterbox");
-
         stage.setScene(scene);
         stage.show();
+
         new Alert(Alert.AlertType.CONFIRMATION, "You are successfully logged in").show();
     }
 
