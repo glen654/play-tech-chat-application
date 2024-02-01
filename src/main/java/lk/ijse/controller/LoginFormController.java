@@ -64,11 +64,11 @@ public class LoginFormController {
 
 
     private void openMainChatScreen(UserDto userDto) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user_interface.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/client_interface.fxml"));
         Parent rootNode = loader.load();
 
-        UserController userController = loader.getController();
-        userController.initUser(userDto);
+        ClientFormController clientFormController = loader.getController();
+        clientFormController.initUser(userDto);
 
         Scene scene = new Scene(rootNode);
 

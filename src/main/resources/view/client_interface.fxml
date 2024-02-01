@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="870.0" prefWidth="750.0" styleClass="background-color" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ClientFormController">
+   <children>
+      <Pane prefHeight="116.0" prefWidth="750.0">
+         <children>
+            <ImageView layoutX="37.0" layoutY="26.0">
+               <image>
+                  <Image url="@../assets/icons8-user-64.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="txtDisplayName" layoutX="109.0" layoutY="56.0" prefHeight="27.0" prefWidth="196.0" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane fx:id="scrollPane" layoutY="109.0" prefHeight="543.0" prefWidth="750.0">
+         <content>
+            <VBox fx:id="vBox" prefHeight="549.0" prefWidth="733.0" />
+         </content>
+      </ScrollPane>
+      <Pane fx:id="txtArea" layoutX="46.0" layoutY="794.0" prefHeight="53.0" prefWidth="503.0">
+         <children>
+            <TextField fx:id="txtMsgField" layoutX="70.0" onKeyPressed="#msgEnterOnAction" prefHeight="53.0" prefWidth="357.0" promptText="Type Your Message" />
+            <JFXButton layoutX="-3.0" layoutY="1.0" onAction="#btnEmojiOnAction" prefHeight="53.0" prefWidth="73.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton layoutX="427.0" onAction="#btnImageOnAction" prefHeight="53.0" prefWidth="73.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="10.0" layoutY="7.0">
+               <image>
+                  <Image url="@../assets/icons8-happy-50.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="439.0" layoutY="2.0">
+               <image>
+                  <Image url="@../assets/icons8-camera-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <JFXButton buttonType="RAISED" layoutX="566.0" layoutY="794.0" onAction="#btnSendOnAction" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: #2980b9;" text="Send">
+         <font>
+            <Font name="Ubuntu Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <AnchorPane fx:id="emojiPane" layoutX="60.0" layoutY="571.0" prefHeight="200.0" prefWidth="357.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="22.0" layoutY="21.0" onMouseClicked="#faceWithTearsOfJoyOnAction">
+               <image>
+                  <Image url="@../assets/emoji/facewithtears_of_joy.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="93.0" layoutY="21.0" onMouseClicked="#griningFaceEmojiOnAction">
+               <image>
+                  <Image url="@../assets/emoji/grinning_face.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="157.0" layoutY="21.0" onMouseClicked="#griningFaceWithSweatOnAction">
+               <image>
+                  <Image url="@../assets/emoji/grinning_facewithsweat.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="225.0" layoutY="21.0" onMouseClicked="#griningSquintingOnAction">
+               <image>
+                  <Image url="@../assets/emoji/grinning_squinting_face.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="290.0" layoutY="21.0" onMouseClicked="#smilingFaceWithHeartEyesOnAction">
+               <image>
+                  <Image url="@../assets/emoji/smilingfacewithheart-eyes.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="22.0" layoutY="108.0" onMouseClicked="#smilingFaceWithHornsOnAction">
+               <image>
+                  <Image url="@../assets/emoji/smilingfacewithhorns.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="93.0" layoutY="108.0" onMouseClicked="#smilingFaceWithOpenHandsOnAction">
+               <image>
+                  <Image url="@../assets/emoji/smilingfacewithopenhands.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="157.0" layoutY="108.0" onMouseClicked="#sunglassFaceOnAction">
+               <image>
+                  <Image url="@../assets/emoji/smilingfacewithsunglasses.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="225.0" layoutY="108.0" onMouseClicked="#cryingFaceOnAction">
+               <image>
+                  <Image url="@../assets/emoji/smilingfacewithtear.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="290.0" layoutY="108.0" onMouseClicked="#thumbsUpOnAction">
+               <image>
+                  <Image url="@../assets/emoji/thumbsup.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
