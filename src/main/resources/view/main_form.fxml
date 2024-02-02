@@ -13,13 +13,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="900.0" prefWidth="800.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="rootNode" prefHeight="878.0" prefWidth="656.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <styleClass>
       <String fx:value="background-color" />
       <String fx:value="border-radius" />
    </styleClass>
    <children>
-      <Label alignment="CENTER" layoutX="228.0" layoutY="167.0" prefHeight="46.0" prefWidth="327.0" stylesheets="@../style/style.css" text="Welcome to">
+      <Label alignment="CENTER" layoutX="165.0" layoutY="165.0" prefHeight="46.0" prefWidth="327.0" stylesheets="@../style/style.css" text="Welcome to">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -40,12 +40,12 @@
             <Font name="Ubuntu Bold" size="48.0" />
          </font>
       </Label>
-      <ImageView layoutX="193.0" layoutY="246.0">
+      <ImageView layoutX="107.0" layoutY="244.0">
          <image>
             <Image url="@../assets/icons8-chat-100.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="280.0" layoutY="273.0" prefHeight="46.0" prefWidth="327.0" text="Chatterbox">
+      <Label alignment="CENTER" layoutX="213.0" layoutY="273.0" prefHeight="46.0" prefWidth="327.0" text="Chatterbox">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -73,45 +73,30 @@
             </DropShadow>
          </effect>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="202.0" layoutY="495.0" onAction="#btnSignInOnAction" prefHeight="65.0" prefWidth="380.0" style="-fx-border-radius: 50px;" stylesheets="@../style/style.css" text=" Already Have Account" textFill="#1b1818">
-         <font>
-            <Font name="Ubuntu Bold" size="24.0" />
-         </font>
+      <JFXButton buttonType="RAISED" layoutX="135.0" layoutY="483.0" onAction="#btnGetStartOnAction" prefHeight="65.0" prefWidth="387.0" styleClass="coolBeans" stylesheets="@../style/style.css" text="Sign IN">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <effect>
-            <DropShadow />
-         </effect>
-         <styleClass>
-            <String fx:value="background-color" />
-            <String fx:value="coolBeans" />
-         </styleClass>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="202.0" layoutY="600.0" onAction="#btnCreateAccountOnAction" prefHeight="65.0" prefWidth="380.0" style="-fx-border-radius: 50px;" stylesheets="@../style/style.css" text="Need A New Account" textFill="#222222">
-         <font>
-            <Font name="Ubuntu Bold" size="24.0" />
-         </font>
+      <JFXButton buttonType="RAISED" layoutX="135.0" layoutY="587.0" onAction="#btnCreateAccountOnAction" prefHeight="65.0" prefWidth="387.0" styleClass="coolBeans" stylesheets="@../style/style.css" text="Sign UP">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <effect>
-            <DropShadow />
-         </effect>
-         <styleClass>
-            <String fx:value="background-color" />
-            <String fx:value="coolBeans" />
-         </styleClass>
       </JFXButton>
-      <ImageView fitHeight="37.0" fitWidth="50.0" layoutX="511.0" layoutY="614.0">
+      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="385.0" layoutY="497.0">
          <image>
             <Image url="@../assets/icons8-arrow-50.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="50.0" layoutX="511.0" layoutY="509.0">
+      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="385.0" layoutY="601.0">
          <image>
             <Image url="@../assets/icons8-arrow-50.png" />
          </image>
       </ImageView>
+      <Label alignment="CENTER" layoutX="210.0" layoutY="848.0" prefHeight="16.0" prefWidth="237.0" text="All Rights Reserved" textFill="WHITE">
+         <font>
+            <Font name="Ubuntu Bold Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

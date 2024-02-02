@@ -12,22 +12,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="900.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="878.0" prefWidth="656.0" styleClass="background-color" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <ImageView layoutX="339.0" layoutY="260.0">
+      <ImageView layoutX="290.0" layoutY="258.0">
          <image>
             <Image url="@../assets/icons8-person-94.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="276.0" layoutY="623.0" onAction="#btnLogInOnAction" prefHeight="49.0" prefWidth="229.0" style="-fx-background-color: navy;" styleClass="coolBeans" stylesheets="@../style/style.css" text="Log In" textFill="WHITE">
+      <JFXButton layoutX="214.0" layoutY="615.0" onAction="#btnLogInOnAction" prefHeight="49.0" prefWidth="229.0" style="-fx-background-color: navy;" styleClass="coolBeans" stylesheets="@../style/style.css" text="Log In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <TextField fx:id="txtName" layoutX="221.0" layoutY="426.0" prefHeight="43.0" prefWidth="339.0" promptText="Enter Your Name" style="-fx-border-radius: 30px;" />
-      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="420.0" text="Chatterbox" textFill="WHITE">
+      <TextField fx:id="txtName" layoutX="159.0" layoutY="424.0" prefHeight="43.0" prefWidth="339.0" promptText="Enter Username" style="-fx-border-radius: 30px;" />
+      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="385.0" text="Chatterbox" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="48.0" />
          </font>
@@ -40,7 +40,7 @@
             <Image url="@../assets/icons8-chat-100.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="672.0" layoutY="19.0" onAction="#btnHomeOnAction" prefHeight="59.0" prefWidth="94.0" ripplerFill="BLACK" style="-fx-background-color: navy; -fx-border-radius: 40px;">
+      <JFXButton buttonType="RAISED" layoutX="548.0" layoutY="20.0" onAction="#btnHomeOnAction" prefHeight="53.0" prefWidth="64.0" ripplerFill="BLACK" style="-fx-background-color: navy; -fx-border-radius: 40px;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -48,16 +48,19 @@
             <Reflection fraction="0.54" topOpacity="0.56" />
          </effect>
       </JFXButton>
-      <ImageView layoutX="687.0" layoutY="17.0">
+      <ImageView layoutX="548.0" layoutY="15.0">
          <image>
             <Image url="@../assets/icons8-home-64.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <Label alignment="CENTER" layoutX="277.0" layoutY="862.0" prefHeight="16.0" prefWidth="237.0" text="All Rights Reserved" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="218.0" layoutY="838.0" prefHeight="16.0" prefWidth="237.0" text="All Rights Reserved" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold Italic" size="14.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtPassword" layoutX="221.0" layoutY="523.0" prefHeight="43.0" prefWidth="339.0" promptText="Enter Your Password" />
+      <PasswordField fx:id="txtPassword" layoutX="159.0" layoutY="518.0" prefHeight="43.0" prefWidth="339.0" promptText="Enter Password" />
    </children>
 </AnchorPane>

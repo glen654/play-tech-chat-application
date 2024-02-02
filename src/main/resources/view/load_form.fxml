@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="900.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoadFormController">
+<AnchorPane fx:id="rootNode" prefHeight="878.0" prefWidth="656.0" styleClass="background-color" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoadFormController">
    <children>
-      <Label alignment="CENTER_RIGHT" layoutX="130.0" layoutY="322.0" prefHeight="128.0" prefWidth="527.0" text="Chatterbox" textFill="WHITE">
+      <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="323.0" prefHeight="128.0" prefWidth="527.0" text="Chatterbox" textFill="WHITE">
          <font>
             <Font name="Ubuntu Bold" size="64.0" />
          </font>
@@ -18,11 +18,11 @@
             <Glow level="0.93" />
          </effect>
       </Label>
-      <ImageView layoutX="190.0" layoutY="344.0">
+      <ImageView layoutX="113.0" layoutY="337.0">
          <image>
             <Image url="@../assets/icons8-chat-100.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="progress" layoutY="876.0" prefHeight="28.0" prefWidth="800.0" progress="0.0" styleClass="background-color" stylesheets="@../style/style.css" />
+      <JFXProgressBar fx:id="progress" layoutX="163.0" layoutY="723.0" prefHeight="13.0" prefWidth="362.0" />
    </children>
 </AnchorPane>

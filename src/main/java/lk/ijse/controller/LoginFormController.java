@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Client.Client;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.custom.LoginBo;
 import lk.ijse.dto.UserDto;
@@ -17,6 +17,7 @@ import lk.ijse.dto.UserDto;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 
 public class LoginFormController {
     @FXML
@@ -27,7 +28,6 @@ public class LoginFormController {
 
     @FXML
     private TextField txtPassword;
-
 
     LoginBo loginBo = (LoginBo) BoFactory.getBoFactory().getBo(BoFactory.BoTypes.LOGIN);
 
@@ -44,42 +44,36 @@ public class LoginFormController {
 
     @FXML
     void btnLogInOnAction(ActionEvent event) {
-        String displayName = txtName.getText();
-        String password = txtPassword.getText();
+        try {
+            String username = txtName.getText();
+            String password = txtPassword.getText();
 
-       try {
-           UserDto userDto = loginBo.searchUser(displayName, password);
-           if (userDto != null) {
-                    clearFields();
-                    openMainChatScreen(userDto);
-                }
-            } catch(SQLException e){
-                new Alert(Alert.AlertType.ERROR, "Login Unsuccessfull").show();
-            } catch (IOException e) {
-           throw new RuntimeException(e);
-       }
+            boolean isAuthenticated = authenticateUser(username, password);
 
+            if (isAuthenticated) {
+                clearFields();
+                Client client = new Client(username);
+
+                Thread thread = new Thread(client);
+                thread.start();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Username or Password is Incorrect").show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    private boolean authenticateUser(String username, String password) {
+        try {
+            UserDto loginDto = loginBo.searchUser(username,password);
 
-
-    private void openMainChatScreen(UserDto userDto) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/client_interface.fxml"));
-        Parent rootNode = loader.load();
-
-        ClientFormController clientFormController = loader.getController();
-        clientFormController.initUser(userDto);
-
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = new Stage();
-        stage.setTitle("Chatterbox");
-        stage.setScene(scene);
-        stage.show();
-
-        new Alert(Alert.AlertType.CONFIRMATION, "You are successfully logged in").show();
+            return loginDto != null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-
 
     private void clearFields() {
         txtName.setText("");
