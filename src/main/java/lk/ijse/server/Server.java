@@ -24,7 +24,7 @@ public class Server implements Runnable{
     @Override
     public void run() {
         while (!serverSocket.isClosed()) {
-            System.out.println("listening.......");
+            System.out.println("Server is listening");
             try {
                 Socket accepted = serverSocket.accept();
                 ClientHandler clientHandler = new ClientHandler(accepted);

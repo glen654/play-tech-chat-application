@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +16,6 @@ import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ijse.Client.Client;
-import lk.ijse.dto.UserDto;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -103,7 +101,7 @@ public class ClientFormController {
         HBox hBox = new HBox();
         hBox.setStyle("-fx-alignment: center-right;-fx-fill-height: true;-fx-min-height: 50;-fx-pref-width: 520;-fx-max-width: 520;-fx-padding: 10");
         Label messageLbl = new Label(text);
-        messageLbl.setStyle("-fx-background-color:  #008011;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center-left;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
+        messageLbl.setStyle("-fx-background-color:  #7f8c8d;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center-left;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
         hBox.getChildren().add(messageLbl);
         vBox.getChildren().add(hBox);
     }
@@ -124,7 +122,7 @@ public class ClientFormController {
         HBox hBox = new HBox();
         hBox.setStyle("-fx-alignment: center-left;-fx-fill-height: true;-fx-min-height: 50;-fx-pref-width: 520;-fx-max-width: 520;-fx-padding: 10");
         Label messageLbl = new Label(message);
-        messageLbl.setStyle("-fx-background-color:   #2980b9;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center-left;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
+        messageLbl.setStyle("-fx-background-color:   #3742fa;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center-left;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
         hBox.getChildren().add(messageLbl);
         Platform.runLater(() -> {
 
@@ -139,7 +137,6 @@ public class ClientFormController {
         messageLbl.setStyle("-fx-background-color:   #2980b9;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
 
         hBox.setStyle("-fx-fill-height: true; -fx-min-height: 50; -fx-pref-width: 520; -fx-max-width: 520; -fx-padding: 10; " + (sender.equals(client.getName()) ? "-fx-alignment: center-right;" : "-fx-alignment: center-left;"));
-        // Display the image in an ImageView or any other UI component
         Platform.runLater(() -> {
             ImageView imageView = new ImageView(new Image(new ByteArrayInputStream(bytes)));
             imageView.setStyle("-fx-padding: 10px;");
@@ -211,9 +208,9 @@ public class ClientFormController {
         emojiPane.setVisible(false);
     }
 
-    public void initUser(UserDto userDto) {
-        this.displayName = userDto.getDisplayName();
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
         txtDisplayName.setText(displayName);
     }
-
 }

@@ -67,7 +67,6 @@ public class LoginFormController {
     private boolean authenticateUser(String username, String password) {
         try {
             UserDto loginDto = loginBo.searchUser(username,password);
-
             return loginDto != null;
         } catch (SQLException e) {
             e.printStackTrace();

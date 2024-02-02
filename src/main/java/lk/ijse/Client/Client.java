@@ -18,6 +18,7 @@ public class Client implements Runnable, Serializable {
     private final Socket socket;
     private final DataInputStream inputStream;
     private final DataOutputStream outputStream;
+
     private ClientFormController clientFormController;
 
     public Client(String name) throws IOException {
@@ -30,17 +31,18 @@ public class Client implements Runnable, Serializable {
         outputStream.writeUTF(name);
         outputStream.flush();
         try {
-            loadScene();
+            loadScene(name);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void loadScene() throws IOException {
+    private void loadScene(String displayName) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/client_interface.fxml"));
         Parent parent = loader.load();
         clientFormController = loader.getController();
+        clientFormController.setDisplayName(displayName);
         clientFormController.setClient(this);
         stage.setResizable(false);
         stage.setScene(new Scene(parent));
@@ -58,11 +60,11 @@ public class Client implements Runnable, Serializable {
             }
         });
 
-        new Alert(Alert.AlertType.INFORMATION, "Server connected").show();
+        new Alert(Alert.AlertType.INFORMATION, "Welcome to Chatterbox").show();
 
         stage.setOnCloseRequest(event -> {
             try {
-                outputStream.writeUTF(" Has left! \uD83D\uDE13 ");
+                outputStream.writeUTF(" Has left the chat!");
                 outputStream.flush();
                 socket.close();
             } catch (IOException e) {
